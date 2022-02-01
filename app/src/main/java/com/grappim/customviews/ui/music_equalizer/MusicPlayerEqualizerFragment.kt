@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import com.grappim.customviews.databinding.FragmentMusicPlayerEqualizerBinding
 import com.grappim.customviews.ui.base.BaseFragment
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch
 
 class MusicPlayerEqualizerFragment : BaseFragment<FragmentMusicPlayerEqualizerBinding>(
@@ -24,11 +25,15 @@ class MusicPlayerEqualizerFragment : BaseFragment<FragmentMusicPlayerEqualizerBi
     }
 
     private fun observeViewModel() {
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             viewModel
-                .equalizerBarItems
+                .barItems
                 .flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
+                .filter {
+                    it.isNotEmpty()
+                }
                 .collectLatest {
+                    println("asd data $it")
                     viewBinding.musicPlayer.updateBarsRelatively(it)
                 }
         }
@@ -39,13 +44,13 @@ class MusicPlayerEqualizerFragment : BaseFragment<FragmentMusicPlayerEqualizerBi
             musicPlayer.init(MusicEqualizerViewModel.BARS_COUNT)
 
             btnStart.setOnClickListener {
-
+                viewModel.startEqualizer()
             }
             btnStop.setOnClickListener {
-
+                viewModel.stopEqualizer()
             }
             btnPause.setOnClickListener {
-
+                viewModel.pauseEqualizer()
             }
         }
     }

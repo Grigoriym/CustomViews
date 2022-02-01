@@ -73,7 +73,7 @@ class MusicPlayerEqualizerView @JvmOverloads constructor(
 
     fun updateBarsRelatively(data: List<Float>) {
         if (bars.size != data.size) {
-            throw IllegalStateException()
+            error("bars.size = ${bars.size} != data.size = ${data.size}")
         }
 
         bars.forEachIndexed { index, barItem ->

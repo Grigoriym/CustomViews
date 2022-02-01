@@ -1,11 +1,11 @@
 package com.grappim.customviews.ui.music_equalizer
 
 import androidx.lifecycle.ViewModel
-import com.grappim.customviews.utils.tickerFlow
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import com.grappim.customviews.utils.TimerInterval
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlin.random.Random
-import kotlin.time.Duration.Companion.milliseconds
 
 class MusicEqualizerViewModel(
 
@@ -15,10 +15,30 @@ class MusicEqualizerViewModel(
         const val BARS_COUNT = 30
     }
 
-    val equalizerBarItems: Flow<List<Float>> = tickerFlow(700.milliseconds)
-        .map {
-            (0 until BARS_COUNT).map {
+    private val timer: TimerInterval = TimerInterval(
+        countDownInterval = 700L,
+        runAtStart = true,
+        onTick = {
+            _barItems.value = (0 until BARS_COUNT).map {
                 Random.nextFloat() * 0.8f
             }
         }
+    )
+
+
+    private val _barItems = MutableStateFlow<List<Float>>(emptyList())
+    val barItems: StateFlow<List<Float>>
+        get() = _barItems.asStateFlow()
+
+    fun stopEqualizer() {
+        timer.stop()
+    }
+
+    fun startEqualizer() {
+        timer.start()
+    }
+
+    fun pauseEqualizer() {
+        timer.pause()
+    }
 }
