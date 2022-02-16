@@ -23,6 +23,24 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
             btnMusicEqualizer.setOnClickListener{
                 mainViewModel.moveToScreen(FragmentScreens.MusicPlayerEqualizer())
             }
+            btnFittingToolbar.setOnClickListener {
+                mainViewModel.moveToScreen(FragmentScreens.FittingToolbar())
+            }
+            btnSettingsItems.setOnClickListener {
+                mainViewModel.moveToScreen(FragmentScreens.SettingsItems())
+            }
+            btnProgressBar.setOnClickListener {
+                mainViewModel.moveToScreen(FragmentScreens.ProgressBar())
+            }
+            btnWaveView.setOnClickListener {
+                mainViewModel.moveToScreen(FragmentScreens.WaveView())
+            }
+            btnCtv.setOnClickListener {
+                mainViewModel.moveToScreen(FragmentScreens.CircularTextView())
+            }
+            btnTabLayout.setOnClickListener {
+                mainViewModel.moveToScreen(FragmentScreens.CustomTabLayout())
+            }
         }
     }
 

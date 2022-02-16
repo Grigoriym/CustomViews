@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SettingsItemView">
+        <attr name="siw_titleText" format="string" />
+        <attr name="siw_titleTextColor" format="color" />
+        <attr name="siw_isTitleBold" format="boolean" />
+        <attr name="siw_isTitleItalic" format="boolean" />
+        <attr name="siw_titleTextSize" format="dimension" />
+
+        <attr name="siw_descriptionText" format="string" />
+        <attr name="siw_descriptionTextColor" format="color" />
+        <attr name="siw_descriptionTextInvisible" format="boolean" />
+
+        <attr name="siw_showSwitch" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressBarView">
+        <attr name="gpb_backgroundProgressColor" format="color" />
+        <attr name="gpb_foregroundProgressColor" format="color" />
+
+        <attr name="gpb_progressWidth" format="dimension" />
+        <attr name="gpb_backgroundWidth" format="dimension" />
+
+        <attr name="gpb_indeterminate_mode" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SeekBarWithTitleView">
+        <attr name="sbt_titleText" format="string" />
+        <attr name="sbt_seekBarMax" format="integer" />
+        <attr name="sbt_seekBarProgress" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="WaveView">
+        <attr name="itemWidth" format="dimension"/>
+        <attr name="itemColor" format="color"/>
+        <attr name="wv_maxVolume" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircularTextView">
+        <attr name="ctv_strokeWidth" format="dimension"/>
+    </declare-styleable>
+
+</resources>

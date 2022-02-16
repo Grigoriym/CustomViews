@@ -9,7 +9,7 @@ import androidx.fragment.app.strictmode.FragmentStrictMode
 import androidx.viewbinding.ViewBinding
 import com.grappim.customviews.utils.viewBinding
 
-open class BaseActivity<VB : ViewBinding>(
+abstract class BaseActivity<VB : ViewBinding>(
     bindingInflater: (LayoutInflater) -> VB
 ) : AppCompatActivity() {
 
@@ -25,24 +25,21 @@ open class BaseActivity<VB : ViewBinding>(
 
     internal val viewBinding: VB by viewBinding(bindingInflater)
 
+    abstract val containerViewId: Int
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
     }
 
-
-    inline fun <reified FragmentToShow : Fragment> showFirstFragment(
-        @IdRes containerViewId: Int,
-    ) {
+    inline fun <reified FragmentToShow : Fragment> showFirstFragment() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             replace<FragmentToShow>(containerViewId, FragmentToShow::class.java.canonicalName)
         }
     }
 
-    inline fun <reified FragmentToShow : Fragment> showFragmentAndClearBackStack(
-        @IdRes containerViewId: Int,
-    ) {
+    inline fun <reified FragmentToShow : Fragment> showFragmentAndClearBackStack() {
         val tagToShow = FragmentToShow::class.java.canonicalName
         supportFragmentManager.popBackStack(
             null,
@@ -59,7 +56,6 @@ open class BaseActivity<VB : ViewBinding>(
     }
 
     inline fun <reified FragmentToShow : Fragment, reified FragmentToHide : Fragment> makeStandardFragmentTransaction(
-        @IdRes containerViewId: Int,
         bundle: Bundle? = null,
         transactionType: FragmentTransactionType = FragmentTransactionType.REPLACE
     ) {

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.grappim.customviews.ui.settings_item_view.SettingsItemView
+        android:id="@+id/settingsFirst"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:siw_descriptionText="First Description"
+        app:siw_isTitleBold="true"
+        app:siw_isTitleItalic="true"
+        app:siw_showSwitch="true"
+        app:siw_titleText="First Title"
+        app:siw_titleTextColor="@color/cv_color_bermuda" />
+
+    <com.grappim.customviews.ui.value_seek.SeekBarWithTitleView
+        android:id="@+id/seekBarTitleSize"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settingsFirst"
+        app:sbt_titleText="Title size (sp)" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etTitleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSetTitleText"
+        app:layout_constraintEnd_toStartOf="@+id/btnSetTitleText"
+        app:layout_constraintStart_toStartOf="@+id/seekBarTitleSize"
+        app:layout_constraintTop_toTopOf="@+id/btnSetTitleText" />
+
+    <Button
+        android:id="@+id/btnSetTitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Set Title"
+        app:layout_constraintEnd_toEndOf="@+id/seekBarTitleSize"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarTitleSize" />
+
+    <Button
+        android:id="@+id/btnBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnItalic"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTitleText" />
+
+    <Button
+        android:id="@+id/btnItalic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Italic"
+        app:layout_constraintEnd_toStartOf="@+id/btnNormal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnBold"
+        app:layout_constraintTop_toTopOf="@+id/btnBold" />
+
+    <Button
+        android:id="@+id/btnNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnItalic"
+        app:layout_constraintTop_toTopOf="@+id/btnItalic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

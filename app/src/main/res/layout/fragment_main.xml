@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,5 +14,59 @@
         android:text="Music Equalizer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnFittingToolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="FittingToolbar"
+        app:layout_constraintStart_toStartOf="@+id/btnMusicEqualizer"
+        app:layout_constraintTop_toBottomOf="@+id/btnMusicEqualizer" />
+
+    <Button
+        android:id="@+id/btnSettingsItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Settings items"
+        app:layout_constraintStart_toStartOf="@+id/btnFittingToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/btnFittingToolbar" />
+
+    <Button
+        android:id="@+id/btnProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Progress bar"
+        app:layout_constraintStart_toStartOf="@+id/btnSettingsItems"
+        app:layout_constraintTop_toBottomOf="@+id/btnSettingsItems" />
+
+    <Button
+        android:id="@+id/btnWaveView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Wave View"
+        app:layout_constraintStart_toStartOf="@+id/btnProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/btnProgressBar" />
+
+    <Button
+        android:id="@+id/btnCtv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Circular Text View"
+        app:layout_constraintStart_toStartOf="@+id/btnWaveView"
+        app:layout_constraintTop_toBottomOf="@+id/btnWaveView" />
+
+    <Button
+        android:id="@+id/btnTabLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Tab Layout"
+        app:layout_constraintStart_toStartOf="@+id/btnCtv"
+        app:layout_constraintTop_toBottomOf="@+id/btnCtv" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

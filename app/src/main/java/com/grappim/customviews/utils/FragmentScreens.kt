@@ -14,7 +14,37 @@ sealed class FragmentScreens {
         override val fromFragment: String? = null
     ) : FragmentScreens()
 
-    data class Third(
+    data class Chart(
+        override val clearBackStack: Boolean = false,
+        override val fromFragment: String? = null
+    ) : FragmentScreens()
+
+    data class FittingToolbar(
+        override val clearBackStack: Boolean = false,
+        override val fromFragment: String? = null
+    ) : FragmentScreens()
+
+    data class SettingsItems(
+        override val clearBackStack: Boolean = false,
+        override val fromFragment: String? = null
+    ) : FragmentScreens()
+
+    data class ProgressBar(
+        override val clearBackStack: Boolean = false,
+        override val fromFragment: String? = null
+    ) : FragmentScreens()
+
+    data class WaveView(
+        override val clearBackStack: Boolean = false,
+        override val fromFragment: String? = null
+    ) : FragmentScreens()
+
+    data class CircularTextView(
+        override val clearBackStack: Boolean = false,
+        override val fromFragment: String? = null
+    ) : FragmentScreens()
+
+    data class CustomTabLayout(
         override val clearBackStack: Boolean = false,
         override val fromFragment: String? = null
     ) : FragmentScreens()

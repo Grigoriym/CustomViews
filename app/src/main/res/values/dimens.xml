@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_stroke_width">4dp</dimen>
+    <dimen name="default_background_stroke_width">10dp</dimen>
+
+    <dimen name="siw_default_title_text_size">20sp</dimen>
+    <dimen name="siw_default_description_text_size">16sp</dimen>
+</resources>
