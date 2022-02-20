@@ -10,12 +10,56 @@
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:padding="4dp"
-        android:text="123"
+        android:text="16+"
         android:textColor="@color/white"
         android:textStyle="bold"
+        app:ctv_indicatorEnabled="true"
+        app:ctv_strokeEnabled="true"
+        app:ctv_strokeWidth="6dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.grappim.customviews.ui.circular_text_view.CircularTextView
+        android:id="@+id/ctvSecond"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:text="18+"
+        android:textColor="@color/red"
+        app:ctv_circleColor="@color/cv_color_golden_tainoi"
+        app:ctv_strokeColor="@color/cv_ghost_white"
+        app:ctv_strokeEnabled="false"
+        app:layout_constraintStart_toEndOf="@+id/ctvFirst"
+        app:layout_constraintTop_toTopOf="@+id/ctvFirst" />
+
+    <com.grappim.customviews.ui.circular_text_view.CircularTextView
+        android:id="@+id/ctvThird"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="18+"
+        android:textColor="@color/red"
+        app:ctv_circleColor="@color/cv_color_bermuda"
+        app:ctv_strokeColor="@color/cv_color_dark_cerulian"
+        app:ctv_strokeEnabled="true"
+        app:layout_constraintStart_toStartOf="@+id/ctvFirst"
+        app:layout_constraintTop_toBottomOf="@+id/ctvFirst" />
+
+    <com.grappim.customviews.ui.circular_text_view.CircularTextView
+        android:id="@+id/ctvFourth"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="12+"
+        android:textColor="@color/cv_color_bermuda"
+        app:ctv_circleColor="@color/cv_color_golden_tainoi"
+        app:ctv_indicatorColor="@color/cv_color_java"
+        app:ctv_indicatorEnabled="true"
+        app:ctv_strokeColor="@color/cv_color_ce_soir"
+        app:ctv_strokeEnabled="true"
+        app:ctv_strokeWidth="2dp"
+        app:civ_indicatorSizeCriteria="8"
+        app:layout_constraintStart_toStartOf="@+id/ctvThird"
+        app:layout_constraintTop_toBottomOf="@+id/ctvThird" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

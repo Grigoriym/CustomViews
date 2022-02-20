@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.grappim.customviews.databinding.ActivityMainBinding
 import com.grappim.customviews.ui.base.BaseActivity
+import com.grappim.customviews.ui.canvas.CanvasFragment
 import com.grappim.customviews.ui.circular_text_view.CircularTextView
 import com.grappim.customviews.ui.circular_text_view.CircularTextViewFragment
 import com.grappim.customviews.ui.fitting_toolbar.FittingToolbarFragment
@@ -51,6 +52,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
                 }
                 is FragmentScreens.CustomTabLayout -> {
                     makeStandardFragmentTransaction<CustomTabLayoutFragment, MainFragment>()
+                }
+                is FragmentScreens.CanvasView -> {
+                    makeStandardFragmentTransaction<CanvasFragment, MainFragment>()
                 }
             }
         }

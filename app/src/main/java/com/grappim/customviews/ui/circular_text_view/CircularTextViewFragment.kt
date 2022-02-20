@@ -18,7 +18,7 @@ class CircularTextViewFragment : BaseFragment<FragmentCircularTextViewBinding>(
 
     private fun initViews() {
         with(viewBinding) {
-            ctvFirst.circleColor = color(R.color.cv_color_golden_tainoi)
+
         }
     }
 }

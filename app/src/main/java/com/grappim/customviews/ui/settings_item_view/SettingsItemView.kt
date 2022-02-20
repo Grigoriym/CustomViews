@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.Gravity
 import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
@@ -38,7 +39,6 @@ class SettingsItemView(
     var isTitleBold: Boolean = true
         set(value) {
             field = value
-            val asd = titleTextView.typeface
             if (value) {
                 if (isTitleItalic) {
                     titleTextView.setTypeface(null, Typeface.BOLD_ITALIC)
@@ -92,16 +92,14 @@ class SettingsItemView(
                 )
                 setTextColor(textColor)
 
-                val isBold = getBoolean(
+                isTitleBold = getBoolean(
                     R.styleable.SettingsItemView_siw_isTitleBold,
                     false
                 )
-                val isItalic = getBoolean(
+                isTitleItalic = getBoolean(
                     R.styleable.SettingsItemView_siw_isTitleItalic,
                     false
                 )
-                isTitleBold = isBold
-                isTitleItalic = isItalic
 
                 val textSize = getDimension(
                     R.styleable.SettingsItemView_siw_titleTextSize,

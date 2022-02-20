@@ -1,0 +1,85 @@
+package com.grappim.customviews.ui.canvas
+
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.util.AttributeSet
+import android.view.View
+
+class CanvasView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
+
+    init {
+
+    }
+
+    private val circlePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.YELLOW
+    }
+    private val ovalPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.GREEN
+    }
+    private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.CYAN
+        strokeWidth = 10f
+    }
+    private val rectPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.BLUE
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        canvas.drawColor(Color.RED)
+        canvas.drawCircle(
+            width / 4f,
+            height / 4f,
+            60f,
+            circlePaint
+        )
+        canvas.drawOval(
+            width / 2f,
+            height / 2f,
+            width.toFloat(),
+            height.toFloat(),
+            ovalPaint
+        )
+        canvas.drawLine(
+            width / 2f,
+            height / 2f,
+            width / 2f,
+            height.toFloat(),
+            linePaint
+        )
+        canvas.drawRect(
+            width / 2f,
+            0f,
+            width.toFloat(),
+            height / 2f,
+            rectPaint
+        )
+        canvas.drawRoundRect(
+            0f,
+            height / 2f + ((height / 2f) / 2f),
+            width / 4f,
+            height.toFloat(),
+            30f,
+            30f,
+            rectPaint
+        )
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val width = resolveSize(DESIRED_WIDTH, widthMeasureSpec)
+        val height = resolveSize(DESIRED_HEIGHT, heightMeasureSpec)
+
+        setMeasuredDimension(width, height)
+    }
+
+    companion object {
+        private const val DESIRED_WIDTH = 550
+        private const val DESIRED_HEIGHT = 400
+    }
+}

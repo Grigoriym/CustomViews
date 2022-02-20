@@ -20,7 +20,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
 
     private fun initViews() {
         with(viewBinding) {
-            btnMusicEqualizer.setOnClickListener{
+            btnMusicEqualizer.setOnClickListener {
                 mainViewModel.moveToScreen(FragmentScreens.MusicPlayerEqualizer())
             }
             btnFittingToolbar.setOnClickListener {
@@ -40,6 +40,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
             }
             btnTabLayout.setOnClickListener {
                 mainViewModel.moveToScreen(FragmentScreens.CustomTabLayout())
+            }
+            btnCanvas.setOnClickListener {
+                mainViewModel.moveToScreen(FragmentScreens.CanvasView())
             }
         }
     }

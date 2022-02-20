@@ -69,4 +69,13 @@
         app:layout_constraintStart_toStartOf="@+id/btnCtv"
         app:layout_constraintTop_toBottomOf="@+id/btnCtv" />
 
+    <Button
+        android:id="@+id/btnCanvas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Canvas"
+        app:layout_constraintStart_toStartOf="@+id/btnTabLayout"
+        app:layout_constraintTop_toBottomOf="@+id/btnTabLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
