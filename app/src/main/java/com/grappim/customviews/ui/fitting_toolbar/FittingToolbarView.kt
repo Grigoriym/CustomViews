@@ -11,6 +11,11 @@ class FittingToolbarView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ViewGroup(context, attrs, defStyleAttr) {
 
+    companion object {
+        private const val START_CHILD_MARGIN = 10
+        private const val END_CHILD_MARGIN = 10
+    }
+
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         val maxWidth = measuredWidth
 

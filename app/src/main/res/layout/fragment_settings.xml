@@ -16,11 +16,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:siw_descriptionText="First Description"
+        app:siw_isSwitchVisible="true"
         app:siw_isTitleBold="true"
         app:siw_isTitleItalic="true"
-        app:siw_showSwitch="true"
         app:siw_titleText="First Title"
         app:siw_titleTextColor="@color/cv_color_bermuda" />
+
+    <com.grappim.customviews.ui.settings_item_view.SettingsItemView
+        android:id="@+id/settingsSecond"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/settingsFirst"
+        app:layout_constraintStart_toStartOf="@id/settingsFirst"
+        app:layout_constraintTop_toBottomOf="@id/settingsFirst"
+        app:siw_isSwitchEnabled="false"
+        app:siw_isSwitchVisible="true"
+        app:siw_titleText="Second title" />
 
     <com.grappim.customviews.ui.value_seek.SeekBarWithTitleView
         android:id="@+id/seekBarTitleSize"
@@ -31,7 +43,7 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/settingsFirst"
+        app:layout_constraintTop_toBottomOf="@id/settingsSecond"
         app:sbt_titleText="Title size (sp)" />
 
     <com.google.android.material.textfield.TextInputEditText

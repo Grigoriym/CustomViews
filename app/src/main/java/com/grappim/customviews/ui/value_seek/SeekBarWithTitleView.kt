@@ -1,61 +1,47 @@
 package com.grappim.customviews.ui.value_seek
 
 import android.content.Context
+import android.graphics.Canvas
 import android.util.AttributeSet
-import android.widget.FrameLayout
-import android.widget.SeekBar
-import android.widget.TextView
-import androidx.appcompat.widget.AppCompatSeekBar
+import android.view.LayoutInflater
 import androidx.core.content.withStyledAttributes
+import com.google.android.material.card.MaterialCardView
 import com.grappim.customviews.R
+import com.grappim.customviews.databinding.ViewSeekBarAndTitleBinding
+import com.grappim.customviews.utils.delegate.viewProperty
 import com.grappim.customviews.utils.onProgressChanged
 
 class SeekBarWithTitleView(
     context: Context,
     attrs: AttributeSet
-) : FrameLayout(context, attrs) {
+) : MaterialCardView(context, attrs) {
 
     companion object {
         private const val DEFAULT_SEEK_BAR_MAX = 100
         private const val DEFAULT_SEEK_BAR_PROGRESS = 20
     }
 
-    private val tvTitle: TextView
-    private val seekBar: SeekBar
-    private val tvSeekBarValue: TextView
+    private var _binding: ViewSeekBarAndTitleBinding? = null
+    private val binding
+        get() = requireNotNull(_binding)
 
-    private var _seekBarListener: ((value: Float) -> Unit)? = null
-    private val seekBarListener
-        get() = requireNotNull(_seekBarListener)
+    var seekBarListener: ((value: Float) -> Unit)? = null
 
-    var seekBarMax: Int = DEFAULT_SEEK_BAR_MAX
-        set(value) {
-            field = value
-            seekBar.max = value
-        }
+    var seekBarMax: Int by viewProperty(DEFAULT_SEEK_BAR_MAX)
 
-    var seekBarProgress: Int = DEFAULT_SEEK_BAR_PROGRESS
-        set(value) {
-            field = value
-            seekBar.progress = value
-        }
+    var seekBarProgress: Int by viewProperty(DEFAULT_SEEK_BAR_PROGRESS)
 
-    var titleText: String = ""
-        set(value) {
-            field = value
-            tvTitle.text = value
-        }
+    var titleText: String by viewProperty("")
 
     init {
-        inflate(context, R.layout.view_seek_bar_and_title, this)
+        _binding = ViewSeekBarAndTitleBinding.inflate(
+            LayoutInflater.from(context),
+            this
+        )
 
-        tvTitle = findViewById(R.id.tvTitle)
-        seekBar = findViewById(R.id.seekBarAndTitle)
-        tvSeekBarValue = findViewById(R.id.tvSeekBarValue)
-
-        seekBar.onProgressChanged {
-            tvSeekBarValue.text = "${it.toInt()}"
-            seekBarListener(it)
+        binding.seekBarAndTitle.onProgressChanged {
+            seekBarProgress = it.toInt()
+            seekBarListener?.invoke(it)
         }
 
         context.withStyledAttributes(attrs, R.styleable.SeekBarWithTitleView) {
@@ -64,23 +50,29 @@ class SeekBarWithTitleView(
             ) ?: ""
             seekBarMax = getInteger(
                 R.styleable.SeekBarWithTitleView_sbt_seekBarMax,
-                DEFAULT_SEEK_BAR_MAX
+                seekBarMax
             )
             seekBarProgress = getInteger(
                 R.styleable.SeekBarWithTitleView_sbt_seekBarProgress,
-                DEFAULT_SEEK_BAR_PROGRESS
+                seekBarProgress
             )
-
-            tvSeekBarValue.text = "$seekBarProgress"
         }
     }
 
-    fun setSeekBarCallback(callback: (value: Float) -> Unit) {
-        _seekBarListener = callback
+    override fun onDraw(canvas: Canvas?) {
+        binding.seekBarAndTitle.max = seekBarMax
+        binding.seekBarAndTitle.progress = seekBarProgress
+
+        binding.tvSeekBarValue.text = "$seekBarProgress"
+
+        binding.tvTitle.text = titleText
+
+        super.onDraw(canvas)
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        _seekBarListener = null
+        seekBarListener = null
+        _binding = null
     }
 }

@@ -3,7 +3,7 @@
 
     <declare-styleable name="SettingsItemView">
         <attr name="siw_titleText" format="string" />
-        <attr name="siw_titleTextColor" format="color" />
+        <attr name="siw_titleTextColor" format="color|reference" />
         <attr name="siw_isTitleBold" format="boolean" />
         <attr name="siw_isTitleItalic" format="boolean" />
         <attr name="siw_titleTextSize" format="dimension" />
@@ -12,7 +12,8 @@
         <attr name="siw_descriptionTextColor" format="color" />
         <attr name="siw_descriptionTextInvisible" format="boolean" />
 
-        <attr name="siw_showSwitch" format="boolean" />
+        <attr name="siw_isSwitchVisible" format="boolean" />
+        <attr name="siw_isSwitchEnabled" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="ProgressBarView">
@@ -41,11 +42,11 @@
         <attr name="ctv_strokeWidth" format="dimension|reference" />
         <attr name="ctv_strokeColor" format="color|reference" />
         <attr name="ctv_circleColor" format="color|reference" />
-        <attr name="ctv_strokeEnabled" format="boolean"/>
+        <attr name="ctv_strokeEnabled" format="boolean" />
 
-        <attr name="ctv_indicatorEnabled" format="boolean"/>
-        <attr name="ctv_indicatorColor" format="color|reference"/>
-        <attr name="civ_indicatorSizeCriteria" format="float"/>
+        <attr name="ctv_indicatorEnabled" format="boolean" />
+        <attr name="ctv_indicatorColor" format="color|reference" />
+        <attr name="civ_indicatorSizeCriteria" format="float" />
     </declare-styleable>
 
 </resources>

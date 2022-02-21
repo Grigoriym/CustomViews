@@ -5,6 +5,7 @@ import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import com.grappim.customviews.databinding.FragmentSettingsBinding
 import com.grappim.customviews.ui.base.BaseFragment
+import com.grappim.customviews.utils.showSnackbar
 
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>(
     FragmentSettingsBinding::inflate
@@ -17,15 +18,14 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(
 
     private fun initView() {
         with(viewBinding) {
-            settingsFirst.setSwitchListener {
-                Snackbar.make(
-                    viewBinding.root,
+            settingsFirst.switchListener = {
+                viewBinding.root.showSnackbar(
                     "$it",
                     Snackbar.LENGTH_SHORT
-                ).show()
+                )
             }
-            seekBarTitleSize.setSeekBarCallback {
-                settingsFirst.setTitleTextSize(it)
+            seekBarTitleSize.seekBarListener = {
+                settingsFirst.titleTextSize = it
             }
             btnSetTitleText.setOnClickListener {
                 settingsFirst.setTitleText(etTitleText.text.toString())

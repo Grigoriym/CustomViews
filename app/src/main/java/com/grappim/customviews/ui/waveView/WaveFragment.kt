@@ -18,12 +18,12 @@ class WaveFragment : BaseFragment<FragmentWaveBinding>(
     }
 
     private fun initView() {
-        with(viewBinding){
+        with(viewBinding) {
             waveView1.initData(viewModel.getWaveData())
             waveView2.initData(viewModel.getWaveData())
             waveView3.initData(viewModel.getWaveData())
 
-            seekBarWaveView.setSeekBarCallback {
+            seekBarWaveView.seekBarListener = {
                 waveView1.maxVolume = it.toInt()
             }
             seekBarWaveView.seekBarProgress = 30
