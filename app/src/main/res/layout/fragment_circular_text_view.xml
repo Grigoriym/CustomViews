@@ -62,4 +62,21 @@
         app:layout_constraintStart_toStartOf="@+id/ctvThird"
         app:layout_constraintTop_toBottomOf="@+id/ctvThird" />
 
+    <com.grappim.customviews.ui.circular_text_view.CircularTextView
+        android:id="@+id/ctvFifth"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:text="12+"
+        android:textColor="@color/cv_color_bermuda"
+        app:ctv_circleColor="@color/cv_color_golden_tainoi"
+        app:ctv_indicatorColor="@color/cv_color_java"
+        app:ctv_indicatorEnabled="true"
+        app:ctv_strokeColor="@color/cv_color_ce_soir"
+        app:ctv_strokeEnabled="true"
+        app:ctv_strokeWidth="6dp"
+        app:civ_indicatorSizeCriteria="8"
+        app:layout_constraintStart_toStartOf="@+id/ctvFourth"
+        app:layout_constraintTop_toBottomOf="@+id/ctvFourth" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

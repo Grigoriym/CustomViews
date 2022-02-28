@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.text.InputFilter
 import android.util.AttributeSet
 import android.view.Gravity
 import androidx.annotation.ColorInt
@@ -13,7 +12,6 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.withStyledAttributes
 import com.grappim.customviews.R
 import com.grappim.customviews.utils.delegate.viewProperty
-import com.grappim.customviews.utils.dp
 import com.grappim.customviews.utils.toPx
 
 class CircularTextView @JvmOverloads constructor(
@@ -26,7 +24,7 @@ class CircularTextView @JvmOverloads constructor(
         private const val DEFAULT_CIRCLE_STROKE_COLOR = Color.BLACK
         private const val DEFAULT_INDICATOR_COLOR = Color.CYAN
 
-        private const val DEFAULT_STROKE_WIDTH = 4
+        private const val DEFAULT_STROKE_WIDTH = 10
 
         private const val DEFAULT_WIDTH = 0
         private const val DEFAULT_HEIGHT = 0
@@ -53,7 +51,7 @@ class CircularTextView @JvmOverloads constructor(
     }
 
     @get:Px
-    var strokeWidth: Int by viewProperty(DEFAULT_STROKE_WIDTH.dp)
+    var strokeWidth: Int by viewProperty(DEFAULT_STROKE_WIDTH)
 
     @get:ColorInt
     var strokeColor: Int by viewProperty(DEFAULT_CIRCLE_STROKE_COLOR)
@@ -112,15 +110,14 @@ class CircularTextView @JvmOverloads constructor(
     private fun initTextView() {
         gravity = Gravity.CENTER
         maxLines = 1
-        filters = arrayOf(InputFilter.LengthFilter(3))
         setOnClickListener {
             textViewClickListener?.invoke()
         }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val width = resolveSize(DEFAULT_WIDTH.toPx.toInt(), widthMeasureSpec)
-        val height = resolveSize(DEFAULT_HEIGHT.toPx.toInt(), heightMeasureSpec)
+        val width = resolveSize(DEFAULT_WIDTH, widthMeasureSpec)
+        val height = resolveSize(DEFAULT_HEIGHT, heightMeasureSpec)
         val textViewSize = width.coerceAtMost(height)
         setMeasuredDimension(textViewSize, textViewSize)
     }

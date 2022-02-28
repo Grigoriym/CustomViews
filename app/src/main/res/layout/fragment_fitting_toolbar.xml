@@ -19,7 +19,7 @@
 
     <com.grappim.customviews.ui.fitting_toolbar.FittingToolbarView
         android:id="@+id/fittingToolbar1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"

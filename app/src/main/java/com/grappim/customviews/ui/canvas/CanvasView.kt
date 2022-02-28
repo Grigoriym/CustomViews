@@ -19,6 +19,12 @@ class CanvasView @JvmOverloads constructor(
 
     private val circlePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.YELLOW
+        style = Paint.Style.FILL
+    }
+    private val circleStrokePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = Color.WHITE
+        style = Paint.Style.STROKE
+        strokeWidth = 15f
     }
     private val ovalPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.GREEN
@@ -39,8 +45,15 @@ class CanvasView @JvmOverloads constructor(
             60f,
             circlePaint
         )
+        canvas.drawCircle(
+            width / 4f,
+            height / 4f,
+            80f,
+            circleStrokePaint
+        )
+
         canvas.drawOval(
-            width / 2f,
+            width / 4f,
             height / 2f,
             width.toFloat(),
             height.toFloat(),
@@ -51,6 +64,13 @@ class CanvasView @JvmOverloads constructor(
             height / 2f,
             width / 2f,
             height.toFloat(),
+            linePaint
+        )
+        canvas.drawLine(
+            width / 2f,
+            height / 2f,
+            width.toFloat(),
+            0f,
             linePaint
         )
         canvas.drawRect(
@@ -72,14 +92,10 @@ class CanvasView @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val width = resolveSize(DESIRED_WIDTH, widthMeasureSpec)
-        val height = resolveSize(DESIRED_HEIGHT, heightMeasureSpec)
+        val width = resolveSize(0, widthMeasureSpec)
+        val height = resolveSize(0, heightMeasureSpec)
+        val desiredSize = width.coerceAtMost(height)
 
-        setMeasuredDimension(width, height)
-    }
-
-    companion object {
-        private const val DESIRED_WIDTH = 550
-        private const val DESIRED_HEIGHT = 400
+        setMeasuredDimension(desiredSize, desiredSize)
     }
 }

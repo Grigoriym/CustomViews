@@ -17,9 +17,9 @@ import com.grappim.customviews.databinding.ViewSettingsItemBinding
 import com.grappim.customviews.utils.delegate.viewProperty
 import com.grappim.customviews.utils.onCheckChanged
 
-class SettingsItemView(
+class SettingsItemView @JvmOverloads constructor(
     context: Context,
-    attrs: AttributeSet
+    attrs: AttributeSet? = null
 ) : ConstraintLayout(context, attrs) {
 
     companion object {

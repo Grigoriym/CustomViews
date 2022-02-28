@@ -16,6 +16,25 @@ class FittingToolbarView @JvmOverloads constructor(
         private const val END_CHILD_MARGIN = 10
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        var contentHeight = 0
+        var contentWidth = 0
+
+        for (i in 0 until childCount) {
+            val child = getChildAt(i)
+            child.measure(
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
+                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+            )
+            contentWidth += child.measuredWidth
+            contentHeight = max(contentHeight, child.measuredHeight)
+        }
+
+        val widthSize = resolveSize(contentWidth, widthMeasureSpec)
+        val heightSize = resolveSize(contentHeight, heightMeasureSpec)
+        setMeasuredDimension(widthSize, heightSize)
+    }
+
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         val maxWidth = measuredWidth
 
@@ -33,36 +52,6 @@ class FittingToolbarView @JvmOverloads constructor(
             } else {
                 child.layout(0, 0, 0, 0)
             }
-        }
-    }
-
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        var contentHeight = 0
-        var contentWidth = 0
-
-        for (i in 0 until childCount) {
-            val child = getChildAt(i)
-            child.measure(
-                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED),
-                MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
-            )
-            contentWidth += child.measuredWidth
-            contentHeight = max(contentHeight, child.measuredHeight)
-        }
-
-        val widthSize = resolveSizeSimplified(contentWidth, widthMeasureSpec)
-        val heightSize = resolveSizeSimplified(contentHeight, heightMeasureSpec)
-        setMeasuredDimension(widthSize, heightSize)
-    }
-
-    private fun resolveSizeSimplified(contentSize: Int, measureSpec: Int): Int {
-        val mode = MeasureSpec.getMode(measureSpec)
-        val size = MeasureSpec.getSize(measureSpec)
-
-        return when (mode) {
-            MeasureSpec.EXACTLY -> size
-            MeasureSpec.AT_MOST -> if (contentSize < size) contentSize else size
-            else -> contentSize
         }
     }
 }
