@@ -9,7 +9,7 @@ import com.google.android.material.card.MaterialCardView
 import com.grappim.customviews.R
 import com.grappim.customviews.databinding.ViewSeekBarAndTitleBinding
 import com.grappim.customviews.utils.delegate.viewProperty
-import com.grappim.customviews.utils.onProgressChanged
+import com.grappim.customviews.utils.extensions.onProgressChanged
 
 class SeekBarWithTitleView(
     context: Context,

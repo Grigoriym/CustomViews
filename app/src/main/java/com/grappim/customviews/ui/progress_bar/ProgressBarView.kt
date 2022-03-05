@@ -1,6 +1,5 @@
 package com.grappim.customviews.ui.progress_bar
 
-import android.animation.TimeInterpolator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
@@ -13,7 +12,7 @@ import androidx.annotation.ColorInt
 import androidx.core.content.withStyledAttributes
 import com.grappim.customviews.R
 import com.grappim.customviews.utils.calculateWidthAndHeight
-import com.grappim.customviews.utils.toPx
+import com.grappim.customviews.utils.extensions.toPx
 import kotlin.math.min
 
 class ProgressBarView(

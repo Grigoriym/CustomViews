@@ -1,4 +1,4 @@
-package com.grappim.customviews.utils
+package com.grappim.customviews.utils.extensions
 
 import android.view.View
 import android.widget.SeekBar

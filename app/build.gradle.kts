@@ -4,6 +4,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -108,7 +109,8 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutines}")
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 
     testImplementation(junit)
     testImplementation(assertJCore)

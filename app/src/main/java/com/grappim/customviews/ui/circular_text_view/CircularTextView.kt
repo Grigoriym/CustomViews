@@ -12,7 +12,6 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.withStyledAttributes
 import com.grappim.customviews.R
 import com.grappim.customviews.utils.delegate.viewProperty
-import com.grappim.customviews.utils.toPx
 
 class CircularTextView @JvmOverloads constructor(
     context: Context,

@@ -49,4 +49,12 @@
         <attr name="civ_indicatorSizeCriteria" format="float" />
     </declare-styleable>
 
+    <declare-styleable name="CustomTabLayout">
+        <attr name="ctl_main_bg_color" format="reference" />
+
+        <attr name="ctl_tab_1_title" format="string" />
+        <attr name="ctl_tab_2_title" format="string" />
+        <attr name="ctl_tab_3_title" format="string" />
+    </declare-styleable>
+
 </resources>

@@ -5,13 +5,13 @@ import androidx.activity.viewModels
 import com.grappim.customviews.databinding.ActivityMainBinding
 import com.grappim.customviews.ui.base.BaseActivity
 import com.grappim.customviews.ui.canvas.CanvasFragment
-import com.grappim.customviews.ui.circular_text_view.CircularTextView
 import com.grappim.customviews.ui.circular_text_view.CircularTextViewFragment
 import com.grappim.customviews.ui.fitting_toolbar.FittingToolbarFragment
 import com.grappim.customviews.ui.music_equalizer.MusicPlayerEqualizerFragment
-import com.grappim.customviews.ui.progress_bar.CustomTabLayoutFragment
 import com.grappim.customviews.ui.progress_bar.ProgressBarFragment
+import com.grappim.customviews.ui.saved_state.SavedStateFragment
 import com.grappim.customviews.ui.settings_item_view.SettingsFragment
+import com.grappim.customviews.ui.tab_layout.CustomTabLayoutFragment
 import com.grappim.customviews.ui.waveView.WaveFragment
 import com.grappim.customviews.utils.FragmentScreens
 
@@ -55,6 +55,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(
                 }
                 is FragmentScreens.CanvasView -> {
                     makeStandardFragmentTransaction<CanvasFragment, MainFragment>()
+                }
+                is FragmentScreens.SavedStateView -> {
+                    makeStandardFragmentTransaction<SavedStateFragment, MainFragment>()
                 }
             }
         }

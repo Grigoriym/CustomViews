@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cv_color_body1">@color/white</color>
+    <color name="cv_color_surface">@color/cv_light_steel_blue</color>
+    <color name="cv_color_surface_unchecked">@color/cv_dim_gray</color>
+
+    <color name="cv_color_tab_bg">@color/cv_dim_gray</color>
+    <color name="cv_color_tab_bg2">@color/cv_color_dark_cerulian</color>
+</resources>

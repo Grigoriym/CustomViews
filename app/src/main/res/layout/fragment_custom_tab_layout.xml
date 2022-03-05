@@ -5,20 +5,27 @@
     android:layout_height="match_parent">
 
     <com.grappim.customviews.ui.tab_layout.CustomTabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
+        android:id="@+id/tabLayout1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:background="@color/cv_ghost_white"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_round_tab_layout_2"
+        app:ctl_tab_1_title="Tab 1"
+        app:ctl_tab_2_title="Tab 2"
+        app:ctl_tab_3_title="Tab 3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabBackground="@drawable/selector_tab"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@android:color/transparent"
-        app:tabIndicatorHeight="0dp"
-        app:tabMode="scrollable"
-        app:tabTextColor="#8e8e93"
-        app:tabSelectedTextColor="@color/black" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerTabLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

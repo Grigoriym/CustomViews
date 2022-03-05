@@ -5,7 +5,7 @@ import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import com.grappim.customviews.databinding.FragmentSettingsBinding
 import com.grappim.customviews.ui.base.BaseFragment
-import com.grappim.customviews.utils.showSnackbar
+import com.grappim.customviews.utils.extensions.showSnackbar
 
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>(
     FragmentSettingsBinding::inflate

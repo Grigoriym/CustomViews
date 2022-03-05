@@ -3,7 +3,7 @@ package com.grappim.customviews.ui.chart
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.view.View
-import com.grappim.customviews.utils.toPx
+import com.grappim.customviews.utils.extensions.toPx
 import kotlin.random.Random
 
 class SkyEntity(

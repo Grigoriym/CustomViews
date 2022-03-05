@@ -44,6 +44,9 @@ class MainFragment : BaseFragment<FragmentMainBinding>(
             btnCanvas.setOnClickListener {
                 mainViewModel.moveToScreen(FragmentScreens.CanvasView())
             }
+            btnSavedState.setOnClickListener {
+                mainViewModel.moveToScreen(FragmentScreens.SavedStateView())
+            }
         }
     }
 

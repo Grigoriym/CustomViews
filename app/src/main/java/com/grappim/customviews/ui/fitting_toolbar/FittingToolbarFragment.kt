@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.grappim.customviews.databinding.FragmentFittingToolbarBinding
 import com.grappim.customviews.ui.base.BaseFragment
-import com.grappim.customviews.utils.dp
+import com.grappim.customviews.utils.extensions.dp
 
 class FittingToolbarFragment : BaseFragment<FragmentFittingToolbarBinding>(
     FragmentFittingToolbarBinding::inflate

@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -15,7 +16,7 @@ import androidx.core.view.isVisible
 import com.grappim.customviews.R
 import com.grappim.customviews.databinding.ViewSettingsItemBinding
 import com.grappim.customviews.utils.delegate.viewProperty
-import com.grappim.customviews.utils.onCheckChanged
+import com.grappim.customviews.utils.extensions.onCheckChanged
 
 class SettingsItemView @JvmOverloads constructor(
     context: Context,
@@ -44,6 +45,10 @@ class SettingsItemView @JvmOverloads constructor(
 
     var isSwitchVisible: Boolean by viewProperty(false)
     var isSwitchEnabled: Boolean by viewProperty(true)
+
+    //    private var isSwitchChecked: Boolean = false
+    private val isSwitchChecked: Boolean
+        get() = binding.onOffSwitch.isChecked
 
     var isTitleBold: Boolean = true
         set(value) {
@@ -190,5 +195,20 @@ class SettingsItemView @JvmOverloads constructor(
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         switchListener = null
+    }
+
+    private fun setSwitchChecked(isChecked: Boolean) {
+        binding.onOffSwitch.isChecked = isChecked
+    }
+
+    override fun onSaveInstanceState(): Parcelable {
+        val superState = super.onSaveInstanceState()
+        return SettingsItemViewState(superState, isSwitchChecked)
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        val settingsState = state as? SettingsItemViewState
+        super.onRestoreInstanceState(settingsState?.superSavedState ?: state)
+        setSwitchChecked(settingsState?.isSwitchChecked ?: false)
     }
 }

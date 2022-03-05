@@ -16,8 +16,23 @@
     <color name="cv_color_bermuda">#87C9C2</color>
     <color name="cv_color_medium_blue">#0804B8</color>
     <color name="cv_ghost_white">#F2F2F7</color>
+    <color name="cv_gainsboro">#DCDCDC</color>
+    <color name="cv_grey">#808080</color>
+    <color name="cv_violet">#EE82EE</color>
+    <color name="cv_dim_gray">#696969</color>
+    <color name="cv_azure">#F2F7F7</color>
+    <color name="cv_light_steel_blue">#B0C4DE</color>
+    <color name="cv_lavender">#E6E6FA</color>
+    <color name="cv_light_gray">#D3D3D3</color>
 
     <color name="red">#D50000</color>
     <color name="green">#00C853</color>
     <color name="blue">#01579B</color>
+
+    <color name="cv_color_body1">@color/black</color>
+    <color name="cv_color_surface">@color/white</color>
+    <color name="cv_color_surface_unchecked">@color/cv_light_gray</color>
+
+    <color name="cv_color_tab_bg">@color/cv_azure</color>
+    <color name="cv_color_tab_bg2">@color/cv_color_java</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.grappim.customviews.utils
+package com.grappim.customviews.utils.extensions
 
 import android.content.res.Resources
 import android.content.res.TypedArray

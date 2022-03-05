@@ -53,4 +53,9 @@ sealed class FragmentScreens {
         override val clearBackStack: Boolean = false,
         override val fromFragment: String? = null
     ) : FragmentScreens()
+
+    data class SavedStateView(
+        override val clearBackStack: Boolean = false,
+        override val fromFragment: String? = null
+    ) : FragmentScreens()
 }
